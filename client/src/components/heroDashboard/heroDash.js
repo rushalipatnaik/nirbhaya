@@ -4,7 +4,7 @@ import '../styles/heroDash.css'
 function HeroDash() {
     return (
         <div>
-            
+            heroDash
         </div>
     )
 }

@@ -4,7 +4,7 @@ import '../styles/header.css'
 function Header() {
     return (
         <div>
-            
+            <button><a href="/aadhar">Login</a></button>
         </div>
     )
 }
