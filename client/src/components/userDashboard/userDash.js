@@ -4,7 +4,7 @@ import '../styles/userDash.css'
 function UserDash() {
     return (
         <div>
-            
+            userDash
         </div>
     )
 }
