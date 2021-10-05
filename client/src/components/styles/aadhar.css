@@ -45,6 +45,7 @@
 
 .user-clasify{
    display: flex;
+   justify-content: center;
 }
 
 .user-clasify .user-btn{
@@ -58,7 +59,11 @@
     width: 97.6vw;
     background-color: blanchedalmond;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.auth-img{
+    height: 600px;
+    width: 600px;
 }

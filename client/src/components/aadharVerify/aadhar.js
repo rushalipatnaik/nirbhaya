@@ -13,7 +13,7 @@ function Aadhar() {
             </div>
             <div className="aadhar-body">
                 <div>
-                   <img src="" />
+                   <img className="auth-img" src={require('../img/Keys.png').default} />
                 </div>
                 <div>
                 <form>
@@ -22,7 +22,7 @@ function Aadhar() {
                 <Input type="file" placeholder="choose your aadhar photo"/>
                 </div>
                 <div>
-                <Button variant="contained">Upload Aadhar</Button>
+                <Button variant="contained" href="/aadhar/submit">Upload Aadhar</Button>
                 </div>
                 </div> 
             </form>
