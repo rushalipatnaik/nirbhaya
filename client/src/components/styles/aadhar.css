@@ -34,10 +34,31 @@
     font-weight: 600;
 }
 
+.aadhar-input{
+    padding-top: 5px;
+}
+
+.aadhar-input-div{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.user-clasify{
+   display: flex;
+}
+
+.user-clasify .user-btn{
+    margin-right: 10px;
+}
+
 .aadhar-body{
     margin-left: -8px;
     padding-left: 20px;
     height: 89vh;
     width: 97.6vw;
     background-color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
