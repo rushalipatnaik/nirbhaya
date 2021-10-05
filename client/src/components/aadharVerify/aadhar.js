@@ -1,28 +1,45 @@
 import React from 'react'
 import '../styles/aadhar.css'
+import {Button, Input} from '@material-ui/core'
 
 function Aadhar() {
     return (
         <div className="aadhar">
-             <div className="aadhar-header">
-             <div className="logo">
+            <div className="aadhar-header">
+            <div className="logo">
                  <div className="logo-name">Nirbhaya</div>
-             </div>
-             <div className="aadhar-page-title">Aadhar Authentication <i class="fas fa-fingerprint"></i></div>
-             </div>
-             <div className="aadhar-body">
-             <form>
-                <input type="file" placeholder="choose your aadhar photo"/>
-                <input type="submit" />
+            </div>
+            <div className="aadhar-page-title">Aadhar Authentication <i class="fas fa-fingerprint"></i></div>
+            </div>
+            <div className="aadhar-body">
+                <div>
+                   <img src="" />
+                </div>
+                <div>
+                <form>
+                <div className="aadhar-input-div">
+                <div className="aadhar-input">
+                <Input type="file" placeholder="choose your aadhar photo"/>
+                </div>
+                <div>
+                <Button variant="contained">Upload Aadhar</Button>
+                </div>
+                </div> 
             </form>
-            <button><a href="/userDash">User</a></button>
-            <button><a href="/herodash">Hero</a></button>
+            <div className="user-clasify">
+                <div className="user-btn">
+                <Button variant="contained" color="secondary" href="/userDash">User</Button>
+                </div>
+                <div className="hero-btn">
+                <Button variant="contained" color="primary" href="/herodash">Hero</Button>
+                </div>
+            
+            
+            </div>
+                </div>
+            
             
              </div>
-
-
-        
-
         </div>
     )
 }
