@@ -17,7 +17,7 @@ async function mongooseConn() {
     .connect(process.env.MONGO_URI, {
       serverSelectionTimeoutMS: 5000,
     })
-    .then(() => console.log("db connected"))
+    .then(() => console.log("db connected!"))
     .catch((err) => console.log(err));
 }
 
