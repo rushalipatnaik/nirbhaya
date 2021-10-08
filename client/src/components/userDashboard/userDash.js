@@ -1,18 +1,32 @@
 import React, { useState } from 'react'
 import '../styles/userDash.css'
 import GoogleMapReact from 'google-map-react'
+import ky from 'ky'
 
 // style this <for marker>
 const AnyReactComponent = ({ text }) => <div>{text}</div>
 
 function UserDash() {
   const [myLoc, setMyLoc] = useState()
+  const [message, setMessage] = useState('')
+
+  async function sendMessage() {
+    const json = await ky
+      .post(process.env.REACT_APP_BACKEND_URL, { json: { message } })
+      .json()
+    console.log(json)
+  }
   function initMap(position) {
     const loc = {
       lat: position.coords.latitude,
       lng: position.coords.longitude,
     }
     setMyLoc(loc)
+    setMessage(
+      `NIRBHAYA-COMPANY-LTD
+      YOUR FRIEND SAYS,
+      Please Help Me, I am at location lat: ${loc.lat}, lng: ${loc.lng}`
+    )
   }
   function errorHandler(err) {
     if (err.code === 1) {
@@ -41,7 +55,7 @@ function UserDash() {
         </GoogleMapReact>
       )}
       <div>
-        <button>Need Help!!!</button>
+        <button onClick={sendMessage}>Need Help!!!</button>
       </div>
     </div>
   )
