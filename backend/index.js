@@ -4,9 +4,22 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const got = require("got");
+const mongoose = require("mongoose");
 
 // express app
 const app = express();
+
+mongooseConn().catch((err) => console.log(err));
+
+// mongoose connection
+async function mongooseConn() {
+  await mongoose
+    .connect(process.env.MONGO_URI, {
+      serverSelectionTimeoutMS: 5000,
+    })
+    .then(() => console.log("db connected"))
+    .catch((err) => console.log(err));
+}
 
 // middlewares
 app.use(express.json());
