@@ -20,14 +20,14 @@ function Header({ signIn }) {
               <a href="#footer">Contact</a>
             </li>
             <li>
-              <button onClick={signIn} className="user-login">
+              <a onClick={signIn} href="/useroDash" className="user-login">
                 User
-              </button>
+              </a>
             </li>
             <li>
-              <button onClick={signIn} className="hero-login">
+              <a onClick={signIn} href="/heroDash" className="hero-login">
                 Hero
-              </button>
+              </a>
             </li>
           </ul>
         </nav>
