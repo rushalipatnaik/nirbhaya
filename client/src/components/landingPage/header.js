@@ -20,13 +20,8 @@ function Header({ signIn }) {
               <a href="#footer">Contact</a>
             </li>
             <li>
-              <a onClick={signIn} href="/useroDash" className="user-login">
-                User
-              </a>
-            </li>
-            <li>
-              <a onClick={signIn} href="/heroDash" className="hero-login">
-                Hero
+              <a onClick={signIn} href="/" className="login">
+                Login
               </a>
             </li>
           </ul>
