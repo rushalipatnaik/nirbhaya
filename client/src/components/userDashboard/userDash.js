@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import '../styles/userDash.css'
 import GoogleMapReact from 'google-map-react'
 import ky from 'ky'
+import Footer from '../landingPage/footer'
+import UserHeader from './userHeader'
 
-// style this <for marker>
 const AnyReactComponent = ({ text }) => <div>{text}</div>
 
 function UserDash() {
@@ -23,9 +24,9 @@ function UserDash() {
     }
     setMyLoc(loc)
     setMessage(
-      `NIRBHAYA-COMPANY-LTD
-      YOUR FRIEND SAYS,
-      Please Help Me, I am at location lat: ${loc.lat}, lng: ${loc.lng}`
+      `NIRBHAYA-FEARLESS-PVT-LTD
+       YOUR FRIEND SAYS,
+       Please Help Me, I am at location lat: ${loc.lat}, lng: ${loc.lng}`
     )
   }
   function errorHandler(err) {
@@ -41,9 +42,13 @@ function UserDash() {
   } else {
     alert('Sorry, browser does not support geolocation!')
   }
-
   return (
-    <div style={{ height: '400px', width: '100%' }}>
+    <div className="user-dash">
+      <UserHeader/>
+       <div id="user-home" className="user-home">
+        <button className="need-help-btn" onClick={sendMessage}>Need Help!!!</button>
+      </div>
+      <div id="user-map" className="user-map" style={{ height: '100vh', width: '100%' }}>
       {' '}
       {myLoc && (
         <GoogleMapReact
@@ -54,9 +59,8 @@ function UserDash() {
           <AnyReactComponent lat={myLoc.lat} lng={myLoc.lng} text="My Marker" />
         </GoogleMapReact>
       )}
-      <div>
-        <button onClick={sendMessage}>Need Help!!!</button>
-      </div>
+     </div>
+    <Footer/>
     </div>
   )
 }
