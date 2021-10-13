@@ -20,6 +20,9 @@ function HeroHeader() {
               <a href="#hero-profile">Profile</a>
             </li>
             <li>
+              <a href="https://aadhar-verify.herokuapp.com/">Verify</a>
+            </li>
+            <li>
               <a href="/user" className="swap">
                 User
               </a>
