@@ -1,30 +1,30 @@
 import React from 'react'
 import firebase,{auth} from '../../firebase'
-import '../styles/userHeader.css';
-function UserHeader() {
+import '../styles/heroHeader.css';
+function HeroHeader() {
     const signOut=()=>{
         firebase.auth.signOut();
       }
     
     return (
-             <div className="user-navbar">
+             <div className="hero-navbar">
              <nav>
           <ul>
             <li>
-              <a href="#user-home">Home</a>
+              <a href="#hero-home">Home</a>
             </li>
             <li>
-              <a href="#user-map">Map</a>
+              <a href="#hero-help">Help</a>
             </li>
             <li>
-              <a href="#user-profile">Profile</a>
+              <a href="#hero-profile">Profile</a>
             </li>
             <li>
               <a href="https://aadhar-verify.herokuapp.com/">Verify</a>
             </li>
             <li>
-              <a href="/hero" className="swap">
-                Hero
+              <a href="/user" className="swap">
+                User
               </a>
             </li>
             <li>
@@ -36,4 +36,5 @@ function UserHeader() {
     )
 }
 
-export default UserHeader
+export default HeroHeader
+

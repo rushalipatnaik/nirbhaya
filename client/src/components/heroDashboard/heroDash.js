@@ -1,8 +1,16 @@
 import React from 'react'
-import '../styles/heroDash.css'
+import Footer from '../landingPage/footer'
+import HeroHeader from './heroHeader'
+import HeroHome from './heroHome'
 
 function HeroDash() {
-  return <div>hero</div>
+  return (
+    <div>
+      <HeroHeader/>
+      <HeroHome/>
+      <Footer/>
+    </div>
+  )
 }
 
 export default HeroDash
