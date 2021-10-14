@@ -6,7 +6,11 @@ import Footer from '../landingPage/footer'
 import UserHeader from './userHeader'
 import Profile from '../misc/profile'
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>
+const AnyReactComponent = () => (
+  <div>
+    <img src="./marker.png" alt="" width={50} height={50} />
+  </div>
+)
 
 function UserDash() {
   const [myLoc, setMyLoc] = useState()
@@ -14,7 +18,9 @@ function UserDash() {
 
   async function sendMessage() {
     const json = await ky
-      .post(process.env.REACT_APP_BACKEND_URL, { json: { message } })
+      .post(`${process.env.REACT_APP_BACKEND_URL}/sendMessage`, {
+        json: { message },
+      })
       .json()
     console.log(json)
   }
@@ -45,10 +51,8 @@ function UserDash() {
   }
   return (
     <div className="user-dash">
-      <UserHeader/>
-       <div id="user-home" className="user-home">
-        <button className="need-help-btn" onClick={sendMessage}>Need Help!!!</button>
-      </div>
+      <UserHeader />
+    </div>
       <div id="user-map" className="user-map" style={{ height: '100vh', width: '100%' }}>
       {' '}
       {myLoc && (
