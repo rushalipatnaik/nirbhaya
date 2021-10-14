@@ -4,6 +4,7 @@ import GoogleMapReact from 'google-map-react'
 import ky from 'ky'
 import Footer from '../landingPage/footer'
 import UserHeader from './userHeader'
+import Profile from '../misc/profile'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>
 
@@ -60,8 +61,9 @@ function UserDash() {
         </GoogleMapReact>
       )}
      </div>
-    <Footer/>
-    </div>
+     <Profile/>
+     <Footer/>
+     </div>
   )
 }
 
