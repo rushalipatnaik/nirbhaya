@@ -52,7 +52,6 @@ function UserDash() {
   return (
     <div className="user-dash">
       <UserHeader />
-    </div>
       <div id="user-map" className="user-map" style={{ height: '100vh', width: '100%' }}>
       {' '}
       {myLoc && (
