@@ -66,7 +66,7 @@ app.get("/user/:uid", async (req, res) => {
 
 app.post("/sendMessage", async (req, res) => {
   try {
-    const { message } = req.body;
+    const { message, contacts } = req.body;
     const response = await got
       .post("https://www.fast2sms.com/dev/bulkV2", {
         json: {
@@ -74,7 +74,7 @@ app.post("/sendMessage", async (req, res) => {
           message,
           language: "english",
           flash: 0,
-          numbers: "",
+          numbers: `${contacts[0]},${contacts[1]}`,
         },
         headers: {
           authorization: process.env.AUTHORIZATION_TOKEN,
@@ -89,6 +89,6 @@ app.post("/sendMessage", async (req, res) => {
 });
 
 // app listening at PORT 8000
-app.listen(8000, () => {
+app.listen(process.env.PORT || 8000, () => {
   console.log("listening at port: ", 8000);
 });

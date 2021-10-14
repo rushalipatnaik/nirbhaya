@@ -15,35 +15,50 @@ function Profile() {
 
   useEffect(() => {
     async function getContacts() {
-      const json = await ky
-        .get(`${process.env.REACT_APP_BACKEND_URL}/user/${uid}`)
-        .json()
-      if (json) {
-        setInput1(json.contacts[0])
-        setInput2(json.contacts[1])
+      try {
+        const json = await ky
+          .get(`${process.env.REACT_APP_BACKEND_URL}/user/${uid}`)
+          .json()
+        // if (json && json.isVerified) {
+        if (json) {
+          setInput1(json.contacts[0])
+          setInput2(json.contacts[1])
+          localStorage.setItem(
+            'contacts',
+            JSON.stringify([json.contacts[0], json.contacts[1]])
+          )
+        } else {
+          window.location.href = 'https://aadhar-verify.herokuapp.com/'
+        }
+      } catch (err) {
+        console.log(err)
       }
     }
     getContacts()
-  })
+  }, [uid])
 
   const setContacts = async (e) => {
     e.preventDefault()
     const contacts = [input1, input2]
-    const json = await ky
-      .get(`${process.env.REACT_APP_BACKEND_URL}/user/${uid}`)
-      .json()
-    if (json) {
-      await ky
-        .patch(`${process.env.REACT_APP_BACKEND_URL}/user/${uid}`, {
-          json: { contacts },
-        })
+    try {
+      const json = await ky
+        .get(`${process.env.REACT_APP_BACKEND_URL}/user/${uid}`)
         .json()
-    } else {
-      await ky
-        .post(`${process.env.REACT_APP_BACKEND_URL}/user`, {
-          json: { contacts, uid },
-        })
-        .json()
+      if (json && json.uid) {
+        await ky
+          .patch(`${process.env.REACT_APP_BACKEND_URL}/user/${uid}`, {
+            json: { contacts },
+          })
+          .json()
+      } else {
+        await ky
+          .post(`${process.env.REACT_APP_BACKEND_URL}/user`, {
+            json: { contacts, uid },
+          })
+          .json()
+      }
+    } catch (err) {
+      console.log(err)
     }
   }
   return (
@@ -58,7 +73,7 @@ function Profile() {
                 <InputLabel>Contact 1</InputLabel>
                 <Input
                   className="input-value"
-                  value={input1}
+                  placeholder={input1}
                   onChange={(event) => setInput1(event.target.value)}
                 />
               </FormControl>
@@ -68,7 +83,7 @@ function Profile() {
                 <InputLabel>Contact 2</InputLabel>
                 <Input
                   className="input-value"
-                  value={input2}
+                  placeholder={input2}
                   onChange={(event) => setInput2(event.target.value)}
                 />
               </FormControl>

@@ -5,6 +5,8 @@ import ky from 'ky'
 import Footer from '../landingPage/footer'
 import UserHeader from './userHeader'
 import Profile from '../misc/profile'
+import { Button } from '@material-ui/core'
+import firebase from '../../firebase'
 
 const AnyReactComponent = () => (
   <div>
@@ -15,14 +17,16 @@ const AnyReactComponent = () => (
 function UserDash() {
   const [myLoc, setMyLoc] = useState()
   const [message, setMessage] = useState('')
+  const user = firebase.auth.currentUser
+  const name = user.displayName
 
   async function sendMessage() {
-    const json = await ky
+    const contacts = JSON.parse(localStorage.getItem('contacts'))
+    await ky
       .post(`${process.env.REACT_APP_BACKEND_URL}/sendMessage`, {
-        json: { message },
+        json: { message, contacts },
       })
       .json()
-    console.log(json)
   }
   function initMap(position) {
     const loc = {
@@ -32,7 +36,7 @@ function UserDash() {
     setMyLoc(loc)
     setMessage(
       `NIRBHAYA-FEARLESS-PVT-LTD
-       YOUR FRIEND SAYS,
+       YOUR FRIEND ${name} SAYS,
        Please Help Me, I am at location lat: ${loc.lat}, lng: ${loc.lng}`
     )
   }
@@ -52,6 +56,7 @@ function UserDash() {
   return (
     <div className="user-dash">
       <UserHeader />
+      <Button onClick={sendMessage}>Need Help</Button>
       <div
         id="user-map"
         className="user-map"
