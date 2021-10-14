@@ -32,7 +32,22 @@ app.post("/user", async (req, res) => {
     const { uid, contacts } = req.body;
     const user = await User.create({ uid, contacts });
 
-    res.send(user);
+    res.json(user);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.patch("/user/:uid", async (req, res) => {
+  try {
+    const { contacts } = req.body;
+    const { uid } = req.params;
+    const user = await User.findOne({ uid });
+
+    user.contacts = contacts;
+    await User.updateOne({ uid }, user);
+
+    res.json(user);
   } catch (err) {
     console.log(err);
   }
@@ -43,7 +58,7 @@ app.get("/user/:uid", async (req, res) => {
     const { uid } = req.params;
     const user = await User.findOne({ uid });
 
-    res.send(user);
+    res.json(user);
   } catch (err) {
     console.log(err);
   }

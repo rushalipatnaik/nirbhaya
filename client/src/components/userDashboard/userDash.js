@@ -52,21 +52,31 @@ function UserDash() {
   return (
     <div className="user-dash">
       <UserHeader />
-      <div id="user-map" className="user-map" style={{ height: '100vh', width: '100%' }}>
-      {' '}
-      {myLoc && (
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyBnqTH6Fp4WVRJt9zDxgQpG4VNSS85UKsM' }}
-          defaultCenter={myLoc}
-          defaultZoom={18}
-        >
-          <AnyReactComponent lat={myLoc.lat} lng={myLoc.lng} text="My Marker" />
-        </GoogleMapReact>
-      )}
-     </div>
-     <Profile/>
-     <Footer/>
-     </div>
+      <div
+        id="user-map"
+        className="user-map"
+        style={{ height: '100vh', width: '100%' }}
+      >
+        {' '}
+        {myLoc && (
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: 'AIzaSyBnqTH6Fp4WVRJt9zDxgQpG4VNSS85UKsM',
+            }}
+            defaultCenter={myLoc}
+            defaultZoom={18}
+          >
+            <AnyReactComponent
+              lat={myLoc.lat}
+              lng={myLoc.lng}
+              text="My Marker"
+            />
+          </GoogleMapReact>
+        )}
+      </div>
+      <Profile />
+      <Footer />
+    </div>
   )
 }
 
