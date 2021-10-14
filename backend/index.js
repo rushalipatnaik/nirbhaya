@@ -9,6 +9,8 @@ const mongoose = require("mongoose");
 // express app
 const app = express();
 
+const User = require("./db");
+
 mongooseConn().catch((err) => console.log(err));
 
 // mongoose connection
@@ -24,6 +26,28 @@ async function mongooseConn() {
 // middlewares
 app.use(express.json());
 app.use(cors());
+
+app.post("/user", async (req, res) => {
+  try {
+    const { uid, contacts } = req.body;
+    const user = await User.create({ uid, contacts });
+
+    res.send(user);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.get("/user/:uid", async (req, res) => {
+  try {
+    const { uid } = req.params;
+    const user = await User.findOne({ uid });
+
+    res.send(user);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 app.post("/sendMessage", async (req, res) => {
   try {
