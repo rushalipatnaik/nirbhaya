@@ -5,7 +5,11 @@ import ky from 'ky'
 import Footer from '../landingPage/footer'
 import UserHeader from './userHeader'
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>
+const AnyReactComponent = () => (
+  <div>
+    <img src="./marker.png" alt="" width={50} height={50} />
+  </div>
+)
 
 function UserDash() {
   const [myLoc, setMyLoc] = useState()
@@ -44,23 +48,31 @@ function UserDash() {
   }
   return (
     <div className="user-dash">
-      <UserHeader/>
-       <div id="user-home" className="user-home">
-        <button className="need-help-btn" onClick={sendMessage}>Need Help!!!</button>
+      <UserHeader />
+      <div id="user-home" className="user-home">
+        <button className="need-help-btn" onClick={sendMessage}>
+          Need Help!!!
+        </button>
       </div>
-      <div id="user-map" className="user-map" style={{ height: '100vh', width: '100%' }}>
-      {' '}
-      {myLoc && (
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyBnqTH6Fp4WVRJt9zDxgQpG4VNSS85UKsM' }}
-          defaultCenter={myLoc}
-          defaultZoom={18}
-        >
-          <AnyReactComponent lat={myLoc.lat} lng={myLoc.lng} text="My Marker" />
-        </GoogleMapReact>
-      )}
-     </div>
-    <Footer/>
+      <div
+        id="user-map"
+        className="user-map"
+        style={{ height: '100vh', width: '100%' }}
+      >
+        {' '}
+        {myLoc && (
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: 'AIzaSyBnqTH6Fp4WVRJt9zDxgQpG4VNSS85UKsM',
+            }}
+            defaultCenter={myLoc}
+            defaultZoom={18}
+          >
+            <AnyReactComponent />
+          </GoogleMapReact>
+        )}
+      </div>
+      <Footer />
     </div>
   )
 }
