@@ -17,7 +17,9 @@ function UserDash() {
 
   async function sendMessage() {
     const json = await ky
-      .post(process.env.REACT_APP_BACKEND_URL, { json: { message } })
+      .post(`${process.env.REACT_APP_BACKEND_URL}/sendMessage`, {
+        json: { message },
+      })
       .json()
     console.log(json)
   }
