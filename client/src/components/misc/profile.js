@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './profile.css'
 import { Button, FormControl, Input, InputLabel } from '@material-ui/core'
-import firebase from '../../firebase'
-import { auth } from '../../firebase'
+import firebase,{auth} from '../../firebase'
 import ky from 'ky'
 
 function Profile() {
-  const user = firebase.auth.currentUser
+  const user = firebase.auth.currentUser;
   const uid = user.uid
   const name = user.displayName
   const photo = user.photoURL
