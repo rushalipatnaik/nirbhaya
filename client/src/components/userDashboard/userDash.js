@@ -66,7 +66,7 @@ function UserDash() {
         {myLoc && (
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: 'AIzaSyBnqTH6Fp4WVRJt9zDxgQpG4VNSS85UKsM',
+              key: 'AIzaSyDSU-8MXJ558cQrTjG1xwkBsTqV2dyXOs8',
             }}
             defaultCenter={myLoc}
             defaultZoom={18}
