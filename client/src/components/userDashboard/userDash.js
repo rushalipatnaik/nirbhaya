@@ -4,6 +4,7 @@ import GoogleMapReact from 'google-map-react'
 import ky from 'ky'
 import Footer from '../landingPage/footer'
 import UserHeader from './userHeader'
+import '../styles/userDash.css';
 import Profile from '../misc/profile'
 import { Button } from '@material-ui/core'
 import firebase from '../../firebase'
@@ -56,7 +57,9 @@ function UserDash() {
   return (
     <div className="user-dash">
       <UserHeader />
-      <Button onClick={sendMessage}>Need Help</Button>
+      <div id="user-home" className="user-home">
+        <button className="need-help-btn" onClick={sendMessage}>Need Help!!!</button>
+      </div>
       <div
         id="user-map"
         className="user-map"
