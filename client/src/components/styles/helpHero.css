@@ -2,3 +2,10 @@
     height: 100vh;
     width:100vw;
 }
+
+.map-link{
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    color: black;
+}

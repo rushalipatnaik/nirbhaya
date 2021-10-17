@@ -60,7 +60,7 @@ function Profile() {
     }
   }
   return (
-    <div id="hero-profile" className="about">
+    <div id="profile" className="about">
       <h1 className="about-title">ABOUT</h1>
       <div className="about-content">
         <div className="name">

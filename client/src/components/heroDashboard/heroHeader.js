@@ -17,7 +17,7 @@ function HeroHeader() {
               <a href="#hero-help">Help</a>
             </li>
             <li>
-              <a href="#hero-profile">Profile</a>
+              <a href="#profile">Profile</a>
             </li>
             <li>
               <a href="https://aadhar-verify.herokuapp.com/">Verify</a>

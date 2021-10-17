@@ -17,7 +17,7 @@ function UserHeader() {
               <a href="#user-map">Map</a>
             </li>
             <li>
-              <a href="#user-profile">Profile</a>
+              <a href="#profile">Profile</a>
             </li>
             <li>
               <a href="https://aadhar-verify.herokuapp.com/">Verify</a>
