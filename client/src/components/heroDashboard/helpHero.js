@@ -1,6 +1,12 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 
+const AnyReactComponent = () => (
+  <div>
+    <img src="./marker.png" alt="" width={50} height={50} />
+  </div>
+)
+
 function HelpHero({ data }) {
   return (
     <div className="hero-help" id="hero-help">
@@ -16,13 +22,19 @@ function HelpHero({ data }) {
             defaultCenter={d.myLoc}
             defaultZoom={18}
           >
-          <AnyReactComponent
-              lat={myLoc.lat}
-              lng={myLoc.lng}
+            <AnyReactComponent
+              lat={d.myLoc.lat}
+              lng={d.myLoc.lng}
               text="My Marker"
             />
           </GoogleMapReact>
-          <button><a href={`https://www.google.com/maps/search/?api=1&query=${myLoc.lat},${myLoc.lng}`}>MAP</a></button>
+          <button>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${d.myLoc.lat},${d.myLoc.lng}`}
+            >
+              MAP
+            </a>
+          </button>
         </div>
       ))}
     </div>
