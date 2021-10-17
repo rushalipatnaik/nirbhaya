@@ -22,7 +22,7 @@ function HelpHero({ data }) {
               text="My Marker"
             />
           </GoogleMapReact>
-          <button><a href={`https://www.google.com/maps/search/?api=1&query={myLoc.lat},{myLoc.lng}`}>MAP</a></button>
+          <button><a href={`https://www.google.com/maps/search/?api=1&query=${myLoc.lat},${myLoc.lng}`}>MAP</a></button>
         </div>
       ))}
     </div>
