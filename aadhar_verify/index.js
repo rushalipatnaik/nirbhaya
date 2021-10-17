@@ -19,6 +19,10 @@ app.set('views', './views');
 
 app.use(express.static('./assests'));
 
+const mongoURI = 'mongodb+srv://nirbhaya:nirbhaya@cluster0.9h2fo.mongodb.net/test';
+
+const promise = mongoose.connect(mongoURI, { useNewUrlParser: true });
+
 let gfs;
 
 db.once('open', ()=>{
@@ -27,7 +31,7 @@ db.once('open', ()=>{
 });
 
 const storage = new GridFsStorage({
-    url: 'mongodb+srv://nirbhaya:nirbhaya@cluster0.9h2fo.mongodb.net/test',
+    db:promise,
     file: (req, file) => {
       return new Promise((resolve, reject) => {
         crypto.randomBytes(16, (err, buf) => {
@@ -69,7 +73,7 @@ const storage = new GridFsStorage({
   });
 
 app.post('/upload',upload.single('file'),(req,res)=>{
-res.redirect('/');
+res.redirect('back');
 });
 
 app.get('/files', (req,res)=>{
